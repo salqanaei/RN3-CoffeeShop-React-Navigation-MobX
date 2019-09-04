@@ -20,6 +20,7 @@ import styles from "./styles";
 
 // Store
 import coffeeStore from "../../store/coffeeStore";
+import CartHeader from "../CoffeeList/CartHeader";
 
 class CoffeeDetail extends Component {
   state = {
@@ -41,8 +42,10 @@ class CoffeeDetail extends Component {
 
   render() {
     const { cafes } = coffeeStore;
+    // const cafes = coffeeStore.cafes
     if (!cafes) return <Content />;
-    const cafe = cafes[0];
+    const cafeID = this.props.navigation.getParam("cafeID");
+    const cafe = cafes.find(cafe => cafe.id === cafeID);
     return (
       <Content>
         <List>
@@ -94,5 +97,11 @@ class CoffeeDetail extends Component {
     );
   }
 }
+CoffeeDetail.navigationOptions = ({ navigation }) => {
+  return {
+    title: navigation.getParam("name"),
+    headerRight: <CartHeader />
+  };
+};
 
 export default observer(CoffeeDetail);

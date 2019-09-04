@@ -7,9 +7,9 @@ import { ListItem, Card, CardItem, Thumbnail, Text, Left } from "native-base";
 // Style
 import styles from "./styles";
 
-const CoffeeItem = ({ cafe }) => {
+const CoffeeItem = ({ cafe, navigation }) => {
   const handlePress = () => {
-    alert("Pressed");
+    navigation.navigate("Detail", { cafeID: cafe.id, name: cafe.name });
   };
   return (
     <ImageBackground

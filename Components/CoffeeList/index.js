@@ -9,18 +9,27 @@ import coffeeStore from "../../store/coffeeStore";
 
 // Component
 import CoffeeItem from "./CoffeeItem";
+import CartHeader from "./CartHeader";
 
-const CoffeeList = () => {
+const CoffeeList = ({ navigation }) => {
   const { cafes } = coffeeStore;
   let shops;
   if (cafes) {
-    shops = cafes.map(cafe => <CoffeeItem cafe={cafe} key={cafe.id} />);
+    shops = cafes.map(cafe => (
+      <CoffeeItem cafe={cafe} key={cafe.id} navigation={navigation} />
+    ));
   }
   return (
     <Content>
       <List>{shops}</List>
     </Content>
   );
+};
+
+CoffeeList.navigationOptions = {
+  title: "Coffee List",
+  headerLeft: null,
+  headerRight: <CartHeader />
 };
 
 export default observer(CoffeeList);
