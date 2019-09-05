@@ -14,13 +14,17 @@ const CoffeeCart = () => {
   const { items } = cartStore;
   let cartItems;
   if (items) {
-    cartItems = items.map(item => <CartItem item={item} key={item.id} />);
+    cartItems = items.map(item => {
+      console.log("CoffeeCart Item", item);
+
+      return <CartItem item={item} key={item.id} />;
+    });
   }
 
   return (
     <List>
       {cartItems}
-      <Button full danger>
+      <Button full danger onPress={() => cartStore.checkoutCart()}>
         <Text>Checkout</Text>
       </Button>
     </List>

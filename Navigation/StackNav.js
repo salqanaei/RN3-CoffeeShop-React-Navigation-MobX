@@ -15,16 +15,16 @@ const MyStack = createStackNavigator(
   {
     initialRouteName: "Login",
     defaultNavigationOptions: {
-      headerTintColor: "white",
       headerStyle: {
         backgroundColor: "rgb(20,90,100)"
       },
+      headerTintColor: "white",
       headerTextStyle: {
         fontWeight: "bold"
-      },
-      cardStyle: {
-        backgroundColor: "rgb(20,90,100)"
       }
+    },
+    cardStyle: {
+      backgroundColor: "rgb(20,90,100)"
     }
   }
 );
