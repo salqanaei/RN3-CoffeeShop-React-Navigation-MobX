@@ -10,6 +10,7 @@ import coffeeStore from "../../store/coffeeStore";
 // Component
 import CoffeeItem from "./CoffeeItem";
 import CartHeader from "./CartHeader";
+import LogoutButton from "../Login/LogoutButton";
 
 const CoffeeList = ({ navigation }) => {
   const { cafes } = coffeeStore;
@@ -29,7 +30,8 @@ const CoffeeList = ({ navigation }) => {
 CoffeeList.navigationOptions = {
   title: "Coffee List",
   headerLeft: null,
-  headerRight: <CartHeader />
+  headerRight: <CartHeader />,
+  headerLeft: <LogoutButton />
 };
 
 export default observer(CoffeeList);
